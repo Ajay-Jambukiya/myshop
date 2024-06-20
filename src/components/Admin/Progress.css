@@ -1,0 +1,15 @@
+.progress{
+    background-color: #aaa;
+    border: 1px solid transparent;
+    border-radius: 10px;
+}
+
+.progress-bar{
+    background-color: lightblue;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 400;
+    padding: 0 1rem;
+}
