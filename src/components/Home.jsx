@@ -4,7 +4,7 @@ import Products from './Admin/Products';
 const Home = () => {
   return (
     <div>
-      Home Page
+      
       <Products/>
     </div>
   )

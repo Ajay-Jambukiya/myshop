@@ -12,10 +12,10 @@ import { selectProducts } from '../../store/slice/ProductSlice'
 
 const initialState={id:"",name:"",price:"",brand:"",imageURL:"",countInStock:"",desc:"",category:''}
 const categories=[
-    {id:'1',name:'mobiles'},
-    {id:'2',name:'fashion'},
-    {id:'3',name:'toys'},
-    {id:'4',name:'electronics'},
+    {id:'1',name:'Watch'},
+    {id:'2',name:'Fashion'},
+    {id:'3',name:'Fashion'},
+    {id:'4',name:'Furniture'},
 ]
 
 const AddProduct = () => {

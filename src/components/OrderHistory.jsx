@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import useFetchCollection from '../customehooks/useFetchCollection'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectOrders, store_order } from '../store/slice/orderSlice'
-import { selectUserId } from '../store/slice/authSlice'
+import { selectUserID } from '../store/slice/authSlice'
 import Loader from './Loader'
 
 
@@ -10,7 +10,7 @@ const OrderHistory = () => {
     let {data,isLoading}=useFetchCollection("orders")
     let dispatch=useDispatch()
     let orders=useSelector(selectOrders) 
-    const userID=useSelector(selectUserId)
+    const userID=useSelector(selectUserID)
 
     useEffect(()=>{
         dispatch(store_order({orders:data}))
@@ -20,16 +20,16 @@ const OrderHistory = () => {
      
   return (
     <div className='container shadow mt-5 p-3 '>
-    <h1>Your Order History</h1> <hr/>
+    <h1 style={{color:'#3f3d56'}}>Your Order History</h1> <hr/>
     {isLoading && <Loader/>}
     {filterOrders.length==0?
     <p>No order Found</p>
       :
       <>
-       <table className="table table-bordered table-hover">
+       <table className="table table-bordered table-hover" >
               <thead>
                 <tr>
-                  <th>s/n</th>
+                  <th>S.No</th>
                   <th>Date</th>
                   <th>Order ID</th>
                   <th>Order Amount</th>

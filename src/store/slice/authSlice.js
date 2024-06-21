@@ -28,6 +28,5 @@ export default authSlice
 export const selectIsLoggedIn=state=>state.auth.isLoggedIn
 export const selectEmail=state=>state.auth.email
 export const selectUserName=state=>state.auth.userName
-export const selectUserId=state=>state.auth.userId
+export const selectUserID=state=>state.auth.userId
 export const selectUserRole=state=>state.auth.role
-// select vala name kai pan rakhi sakay

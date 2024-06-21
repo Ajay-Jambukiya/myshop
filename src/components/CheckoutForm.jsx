@@ -3,7 +3,7 @@ import spinnerImg from "../assets/spinner.jpg"
 import { PaymentElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { selectEmail, selectUserId } from '../store/slice/authSlice'
+import { selectEmail, selectUserID } from '../store/slice/authSlice'
 import { EMPTY_CART, selectCartItems, selectTotalAmount } from '../store/slice/cartSlice'
 import { selectShippingAddress } from '../store/slice/checkoutSlice'
 import CheckoutSummary from './CheckoutSummary'
@@ -18,7 +18,7 @@ const CheckoutForm = () => {
   const elements=useElements()
   const dispatch=useDispatch()
   const navigate=useNavigate()
-  const userID=useSelector(selectUserId)
+  const userID=useSelector(selectUserID)
   const userEmail=useSelector(selectEmail)
   const cartItems=useSelector(selectCartItems)
   const totalAmount=useSelector(selectTotalAmount)
@@ -58,8 +58,8 @@ const CheckoutForm = () => {
 
     let saveoreder=()=>{
       let today=new Date()
-      let date=today.toDateString
-      let time=today.toLocaleTimeString
+      let date=today.toDateString()
+      let time=today.toLocaleTimeString()
       const orderConfig={
         userID:userID,
         userEmail:userEmail,
