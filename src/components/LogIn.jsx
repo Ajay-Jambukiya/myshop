@@ -12,6 +12,7 @@ const LogIn = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isLoading,setIsLoading]=useState(false)
+    const [errors, setErrors] = useState({});
     const navigate=useNavigate()
     const saveurl=useSelector(selectPreviousURL)
 
@@ -25,6 +26,7 @@ const LogIn = () => {
 
     let loginUser=(e)=>{
       e.preventDefault()
+      setErrors(validateUser(email, password));
       setIsLoading(true)
       signInWithEmailAndPassword(auth, email, password)
         .then(async(userCredential) => {
@@ -63,6 +65,13 @@ const LogIn = () => {
         toast.error(error.message)
       });
     }
+
+    let validateUser = (email, password) => {
+      let error = {};
+      if (email == "") error.emailerr = "Email is required";
+      if (password == "") error.passworderr = "Password is required";
+      return error;
+    };
    
   return (
     <>
@@ -83,6 +92,7 @@ const LogIn = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
+              <span className="text-danger">{errors.emailerr}</span>
              
               <input
                 type="password"
@@ -91,6 +101,7 @@ const LogIn = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+              <span className="text-danger">{errors.passworderr}</span>
              
               <div class="d-grid gap-2 mt-3">
                 <button type="submit" name="" id="" class="btn btn-warning" style={{backgroundColor:'#e6891e',color:'#3f3d56'}} onClick={loginUser}>Log In</button>

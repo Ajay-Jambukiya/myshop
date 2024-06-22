@@ -58,8 +58,7 @@ const Orders = () => {
                           </td>
                           <td>{id}</td>
                           <td>
-                            {"$"}
-                            {orderAmount}
+                            {"$"}{orderAmount}
                           </td>
                           <td>
                             <p

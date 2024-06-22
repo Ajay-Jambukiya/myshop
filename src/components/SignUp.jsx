@@ -65,6 +65,7 @@ const SignUp = () => {
               <input
                 type="text"
                 placeholder="Email"
+                required
                 className="form-control mt-3"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}

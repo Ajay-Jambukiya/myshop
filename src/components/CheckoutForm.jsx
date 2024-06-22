@@ -10,6 +10,7 @@ import CheckoutSummary from './CheckoutSummary'
 import { toast } from 'react-toastify'
 import { Timestamp, addDoc, collection } from 'firebase/firestore'
 import { db } from '../firebase/config'
+import emailjs from '@emailjs/browser';
 
 const CheckoutForm = () => {
   const [message,setMessage]=useState(null)
@@ -75,8 +76,16 @@ const CheckoutForm = () => {
       try{
         addDoc(collection(db,"orders"),orderConfig)
         dispatch(EMPTY_CART())
-        toast.success('Order Placed')
-        navigate('/checkout-success')
+        emailjs
+        .send('service_socn13l', 'template_ys9wdjj', {user_email:userEmail, order_status:orderConfig.orderStatus,amount:orderConfig.orderAmount,date:orderConfig.orderDate}, 'S0W3KKbgVtpN19bcM')
+        .then(
+          (result) => {
+            toast.success('Order Placed')
+            navigate('/checkout-success')
+          },
+          (error) => {
+            console.log('FAILED...', error.text);
+          });
       }
       catch(error){
         toast.error(error.message)

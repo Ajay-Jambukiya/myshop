@@ -11,11 +11,24 @@ import { toast } from 'react-toastify';
 import { ShowOnLogin, ShowOnLogout } from './HiddenLinks';
 import { doc, getDoc } from 'firebase/firestore';
 import { selectCartItems } from '../store/slice/cartSlice';
+import useFetchCollection from '../customehooks/useFetchCollection';
+import productSlice, { selectProducts, store_product } from '../store/slice/ProductSlice';
+import { FILTER_BY_SEARCH } from '../store/slice/filterSlice';
 
 
 const HeaderNavbar = () => {
+    const [search,setSearch]=useState(null)
+
+    // for search the product
+    let {data,isLoading}=useFetchCollection("products")
+    let dispatch=useDispatch()
+    let products=useSelector(selectProducts)
+    useEffect(()=>{
+        dispatch(store_product({products:data}))
+    },[data,dispatch])
+     
     const cartItems=useSelector(selectCartItems)
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
     const userrole = useSelector(selectUserRole)
     const userName = useSelector(selectUserName) 
     const navigate = useNavigate()
@@ -47,6 +60,16 @@ const HeaderNavbar = () => {
                 toast.error(error.message)
             });
     }
+
+    // for search the product
+    // useEffect(()=>{
+    //     dispatch(FILTER_BY_SEARCH({search,products}))
+    // },[search,dispatch,products])
+
+    let handleSearch=(e)=>{
+        e.preventDefault()
+        dispatch(FILTER_BY_SEARCH({search,products})) 
+     }
 
   return (
     <>
@@ -82,8 +105,8 @@ const HeaderNavbar = () => {
                 </ul>
                 <form className="d-flex">
                     <div className='input-group'>
-                    <input className="form-control" type="search" placeholder="Search" aria-label="Search"/>
-                    <button className="btn btn-warning" type="submit" style={{backgroundColor:'#e6891e'}}><FaSearch/></button>
+                        <input className="form-control" type="search" placeholder="Search" aria-label="Search" value={search} onChange={(e)=>setSearch(e.target.value)}/>
+                        <button className="btn btn-warning" type="submit" style={{backgroundColor:'#e6891e'}} onClick={handleSearch}><FaSearch/></button>
                     </div>
                 </form>
                 <ul className="navbar-nav mb-2 mb-lg-0">

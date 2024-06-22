@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 import useFetchDocument from '../../customehooks/useFetchDocument'
 import spinnerImg from '../../assets/spinner.jpg'
 import { FaArrowLeft } from 'react-icons/fa'
+import ChangeOrderStatus from './ChangeOrderStatus'
 
 const OrderDetails = () => {
     const {id,orderStatus}=useParams()
@@ -68,6 +69,7 @@ const OrderDetails = () => {
               }
             </tbody>
           </table>
+          <ChangeOrderStatus order={order} id={id} orderstatus={orderStatus}/>
         </>
         }
       </div>
