@@ -11,16 +11,16 @@ const dispatch=useDispatch()
     }
 
   return (
-    <div class="card col-3 mx-3 mb-3 shadow">
+    <div className="card col-sm-5 col-sm-3 col-md-3 col-lg-3 col-xl-3 col-xxl-2 mx-3 mb-3 shadow">
       <Link to={`/details/${id}`}>
-        <img class="card-img-top" src={imageURL} style={{height:'180px'}}  alt="Title"/>
+        <img className="card-img-top" src={imageURL} style={{height:'180px'}}  alt="Title"/>
       </Link>
-      <div class="card-body">
-        <h4 class="card-title">{name}</h4>
-        <p class="card-text">{category}</p>
-        <p class="card-text">{brand}</p>
-        <p class="card-text">{price}</p>
-        <button type="button" class="btn btn-warning" onClick={()=>addToCart(product)}>Add to Cart</button>
+      <div className="card-body">
+        <h4 className="card-title">{name}</h4>
+        <p className="card-text">{category}</p>
+        <p className="card-text">{brand}</p>
+        <p className="card-text">{price}</p>
+        <button type="button" className="btn btn-warning" onClick={()=>addToCart(product)}>Add to Cart</button>
       </div>
     </div>
   )
