@@ -36,7 +36,6 @@ function App() {
         <Route path='addproduct' element={<AddProduct/>}/>
         <Route path='viewproduct' element={<ViewProducts/>}/>
         <Route path='editproduct/:id' element={<AddProduct/>}/>
-        {/* <Route path='viewuser' element={<ViewUser/>}/> */}
         <Route path='orders' element={<Orders/>}/>
         <Route path='order-details/:id/:orderStatus' element={<OrderDetails/>}/>
       </Route>

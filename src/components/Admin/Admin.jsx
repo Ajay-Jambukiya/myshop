@@ -22,11 +22,11 @@ const Admin = () => {
                             View Products
                             </Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link to='viewuser' class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
                               View Users
                             </Link>
-                        </li>
+                        </li> */}
                         <li>
                         <Link class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home" to='orders'>
                             View Orders
