@@ -7,7 +7,8 @@ initialState:{cartItems:localStorage.getItem("cartItems")
             ?
             JSON.parse(localStorage.getItem("cartItems"))
             :
-            [],cartTotalAmount:0,cartTotalQuantity:0,previousURL:""},
+            [],cartTotalAmount:localStorage.getItem("total") ? localStorage.getItem("total") : 0,
+            cartTotalQuantity:0,previousURL:""},
 reducers:{
     ADD_TO_CART(state,action){
         console.log(action.payload)
@@ -57,6 +58,7 @@ reducers:{
             return prev + (parseInt(item.price) * parseInt(item.cartQuantity))
         },0)
         state.cartTotalAmount=result
+        localStorage.setItem('total',state.cartTotalAmount) 
     },
     // CALCULATE_TOTALQUANTITY(state,action){
     //     let count=state.cartItems.reduce((prev,item)=>{
