@@ -1,11 +1,11 @@
 # Getting Started with Create React App
 
 Follow the instructions
-1.npm i (install dependency)
-2.npm i nodemon
-3.npm start
-4.start the server
-5.nodemon index.js
+1 npm i (install dependency)
+2 npm start
+3 npm i nodemon
+4 cd server(start the server with change directory)
+5 nodemon index.js
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
