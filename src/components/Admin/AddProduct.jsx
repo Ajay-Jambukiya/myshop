@@ -14,7 +14,7 @@ const initialState={id:"",name:"",price:"",brand:"",imageURL:"",countInStock:"",
 const categories=[
     {id:'1',name:'Watch'},
     {id:'2',name:'Fashion'},
-    {id:'3',name:'Fashion'},
+    {id:'3',name:'Shoes'},
     {id:'4',name:'Furniture'},
 ]
 
@@ -90,7 +90,7 @@ const AddProduct = () => {
                 })
                 setIsLoading(false)
                 toast.success("Product updated")
-                navigate('/admin/viewproduct')
+                navigate('/admin/viewproducts')
             }
             catch(error){
                 setIsLoading(false)

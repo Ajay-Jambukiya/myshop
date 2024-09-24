@@ -8,6 +8,7 @@ import { doc, getDoc } from 'firebase/firestore';
 import { useSelector } from 'react-redux';
 import { selectPreviousURL } from '../store/slice/cartSlice';
 // import Loader from './Loader'
+
 const LogIn = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -72,6 +73,10 @@ const LogIn = () => {
       if (password == "") error.passworderr = "Password is required";
       return error;
     };
+
+    const style = {
+      backgroundColor:"gray"
+    }
    
   return (
     <>

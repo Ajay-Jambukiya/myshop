@@ -37,9 +37,9 @@ const ProductDetails = () => {
       </div>
       <div className='col-5'>
           <h3>{product.name}</h3>
-          <p>{product.brand}</p>
-          <p>{product.desc}</p>
-          <p>{product.price}</p>
+          <p>Brand: <b>{product.brand}</b></p>
+          <p>Details: <b>{product.desc}</b></p>
+          <p>₹{product.price}</p>
           <div>
             {isCartAdded < 0 
             ?
